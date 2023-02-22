@@ -40,9 +40,11 @@ end
 function [value] = mult_core(C1,C2)
 
 s1 = size(C1);
+if norm(s1 - ones(length(s1),1)) == 0
+    s1 = 1;
+end
 s2 = size(C2);
 nbDim = max(length(s1), length(s2));
-
 % We do the product
 value = reshape(C1,numel(C1),1) * reshape(C2,1,numel(C2));
 
